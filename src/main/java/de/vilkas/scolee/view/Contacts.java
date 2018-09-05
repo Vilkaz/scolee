@@ -1,0 +1,16 @@
+package de.vilkas.scolee.view;
+
+import com.vaadin.navigator.View;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.VerticalLayout;
+
+@SpringView(name = Contacts.VIEW_NAME)
+public class Contacts extends VerticalLayout implements View {
+
+    public static final String VIEW_NAME = "contacts";
+
+    public Contacts() {
+        addComponent(new Label("Adressen"));
+    }
+}
