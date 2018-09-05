@@ -24,6 +24,11 @@ public class EventDataServiceImpl implements EventDataService {
     }
 
     @Override
+    public void delete(final EventData eventData) {
+        repository.delete(eventData);
+    }
+
+    @Override
     public EventData findFirstById(final Long id) {
        return repository.findFirstById(id);
     }

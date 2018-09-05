@@ -2,11 +2,12 @@ package de.vilkas.scolee.module.calendar;
 
 import com.vaadin.data.Binder;
 import com.vaadin.ui.*;
+import org.vaadin.dialogs.ConfirmDialog;
 
 public class EventPopupWindow extends Window {
 
 
-    private final MeetingDataProvider eventProvider;
+    private final MeetingDataProvider meetingDataProvider;
     private EventData eventData;
     private Binder<EventData> binder;
     private DateField start;
@@ -18,9 +19,10 @@ public class EventPopupWindow extends Window {
     private Button saveBtn;
     private HorizontalLayout buttons;
     private VerticalLayout mainLayout;
+    private Button deleteBtn;
 
-    public EventPopupWindow(final MeetingDataProvider eventProvider, final EventData eventData) {
-        this.eventProvider = eventProvider;
+    public EventPopupWindow(final MeetingDataProvider meetingDataProvider, final EventData eventData) {
+        this.meetingDataProvider = meetingDataProvider;
         this.eventData = eventData;
         binder = new Binder<>();
 
@@ -49,9 +51,27 @@ public class EventPopupWindow extends Window {
     }
 
     private void initButtons() {
+        deleteBtn = new Button("Löschen", e -> handleDelete());
         cancelBtn = new Button("Abbrechen", e -> close());
         saveBtn = new Button("Speichern", e -> handleSave());
-        buttons = new HorizontalLayout(cancelBtn, saveBtn);
+        buttons = new HorizontalLayout(deleteBtn, cancelBtn, saveBtn);
+    }
+
+    private void handleDelete() {
+        ConfirmDialog.show(getUI(), "Achtung", "Wollen Sie Kalendereintrag " + eventData.getName() + " wirklich löschen ?",
+                "Löschen", "Abbrechen", new ConfirmDialog.Listener() {
+
+                    public void onClose(ConfirmDialog dialog) {
+                        if (dialog.isConfirmed()) {
+                            delete();
+                        }
+                    }
+                });
+    }
+
+    private void delete() {
+        meetingDataProvider.remove(eventData);
+        close();
     }
 
     private void initDetails() {
@@ -81,7 +101,7 @@ public class EventPopupWindow extends Window {
     }
 
     private void handleSave() {
-        eventProvider.saveEventItem(new EventItem(eventData));
+        meetingDataProvider.saveEventItem(new EventItem(eventData));
         close();
     }
 }

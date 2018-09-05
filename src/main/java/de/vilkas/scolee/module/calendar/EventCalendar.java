@@ -35,7 +35,6 @@ public class EventCalendar extends CustomComponent {
 
     public EventCalendar(MeetingDataProvider meetingDataProvider) {
         this.meetingDataProvider = meetingDataProvider;
-        log.debug("XXXXXXXXXXXXXXXXXXXXXXXXX " + meetingDataProvider== null ? "IST NULL !" : "IST NICHT NULL");
         setId("class-Calendar");
         setSizeFull();
 

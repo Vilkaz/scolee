@@ -30,13 +30,17 @@ public final class MeetingDataProvider extends BasicItemProvider<EventItem> {
         fireItemSetChanged();
     }
 
+    public void remove(EventData eventData) {
+        removeItem(new EventItem(eventData));
+        eventDataService.delete(eventData);
+    }
+
     public void saveEventItem(EventItem eventItem) {
         final EventItem existingItem = getExistingItem(eventItem);
         if (existingItem == null) {
             addItem(eventItem);
-        } else {
-            fireItemSetChanged();
         }
+        fireItemSetChanged();
         eventDataService.save(eventItem.getEventData());
     }
 

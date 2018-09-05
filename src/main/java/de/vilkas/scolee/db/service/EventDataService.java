@@ -10,6 +10,8 @@ public interface EventDataService {
 
     void save(EventData eventData);
 
+    void delete(EventData eventData);
+
     EventData findFirstById(Long id);
 
     Collection<EventData> findAll();
