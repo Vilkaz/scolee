@@ -12,8 +12,6 @@ public class CalendarView extends VerticalLayout implements View {
 
     public static final String VIEW_NAME = "calendar";
 
-
-
     @Autowired
     public CalendarView(MeetingDataProvider meetingDataProvider) {
         final EventCalendar calendar = new EventCalendar(meetingDataProvider);

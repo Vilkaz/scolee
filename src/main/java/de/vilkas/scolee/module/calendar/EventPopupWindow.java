@@ -37,9 +37,12 @@ public class EventPopupWindow extends Window {
         setModal(true);
         mainLayout.setComponentAlignment(buttons, Alignment.BOTTOM_RIGHT);
         mainLayout.setMargin(true);
+        setWidth(90, Unit.PERCENTAGE);
+        setHeight(80, Unit.PERCENTAGE);
         dates.setWidth(100, Unit.PERCENTAGE);
         name.setWidth(100, Unit.PERCENTAGE);
         details.setWidth(100, Unit.PERCENTAGE);
+        details.setHeight(100, Unit.PERCENTAGE);
     }
 
     private void initUI() {

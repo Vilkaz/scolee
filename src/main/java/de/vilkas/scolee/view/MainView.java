@@ -22,6 +22,7 @@ public class MainView extends UI {
         MenuBar menu = createMenuBar();
         HorizontalLayout content = createMainLayout(menu);
         initNavigator(content);
+        navitageToView(CalendarView.VIEW_NAME);
     }
 
     /**
@@ -31,7 +32,6 @@ public class MainView extends UI {
     private void initNavigator(final HorizontalLayout content) {
         navigator = new Navigator(this, content);
         //Default View
-        navigator.addView("", CalendarView.class);
         navigator.addProvider(viewProvider);
         setNavigator(navigator);
     }
