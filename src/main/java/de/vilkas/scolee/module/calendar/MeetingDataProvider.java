@@ -18,12 +18,19 @@ public final class MeetingDataProvider extends BasicItemProvider<EventItem> {
 
     @Autowired
     public MeetingDataProvider(EventDataService eventDataService) {
+        this.eventDataService = eventDataService;
+        refreshItems();
+    }
+
+    private void refreshItems() {
+        removeAllEvents();
         final Collection<EventData> eventDatas = eventDataService.findAll();
-        final List<EventItem> eventItems = eventDatas.stream()
+        List<EventItem> eventItems = eventDatas.stream()
                 .map(ed -> new EventItem(ed))
                 .collect(Collectors.toList());
         setItems(eventItems);
     }
+
 
     void removeAllEvents() {
         this.itemList.clear();
@@ -35,13 +42,9 @@ public final class MeetingDataProvider extends BasicItemProvider<EventItem> {
         eventDataService.delete(eventData);
     }
 
-    public void saveEventItem(EventItem eventItem) {
-        final EventItem existingItem = getExistingItem(eventItem);
-        if (existingItem == null) {
-            addItem(eventItem);
-        }
-        fireItemSetChanged();
-        eventDataService.save(eventItem.getEventData());
+    public void save(EventData eventData) {
+        eventDataService.save(eventData);
+        refreshItems();
     }
 
     private EventItem getExistingItem(EventItem eventItem) {

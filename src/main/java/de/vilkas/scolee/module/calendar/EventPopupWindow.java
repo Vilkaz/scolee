@@ -101,7 +101,7 @@ public class EventPopupWindow extends Window {
     }
 
     private void handleSave() {
-        meetingDataProvider.saveEventItem(new EventItem(eventData));
+        meetingDataProvider.save(eventData);
         close();
     }
 }
