@@ -31,7 +31,6 @@ public class MainView extends UI {
      */
     private void initNavigator(final HorizontalLayout content) {
         navigator = new Navigator(this, content);
-        //Default View
         navigator.addProvider(viewProvider);
         setNavigator(navigator);
     }

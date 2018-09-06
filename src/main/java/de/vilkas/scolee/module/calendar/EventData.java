@@ -94,6 +94,10 @@ public class EventData {
         return longTime;
     }
 
+    public void setLongTime(final boolean longTime) {
+        this.longTime = longTime;
+    }
+
     public LocalDate getStartAsLocalDate() {
         return start == null ? null : start.toLocalDate();
     }
@@ -107,7 +111,7 @@ public class EventData {
     }
 
     public void setEndAsLocalDate(LocalDate date) {
-        end = ZonedDateTime.of(date, LocalTime.NOON, ZoneId.systemDefault());
+        end = ZonedDateTime.of(date, LocalTime.MIDNIGHT, ZoneId.systemDefault());
     }
 
     @Override

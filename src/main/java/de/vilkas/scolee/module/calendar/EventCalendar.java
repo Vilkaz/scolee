@@ -114,17 +114,17 @@ public class EventCalendar extends CustomComponent {
 
         long start = bcal.getTimeInMillis();
 
-        bcal.add(java.util.Calendar.HOUR, 7);
-        bcal.add(java.util.Calendar.MINUTE, 30);
+//        bcal.add(java.util.Calendar.HOUR, 7);
+//        bcal.add(java.util.Calendar.MINUTE, 30);
         long end = bcal.getTimeInMillis();
 
-        calendar.addTimeBlock(start, end, "my-blocky-style");
+//        calendar.addTimeBlock(start, end, "my-blocky-style");
 
         cal.add(java.util.Calendar.DAY_OF_WEEK, 1);
 
         bcal.clear();
-        bcal.add(java.util.Calendar.HOUR, 14);
-        bcal.add(java.util.Calendar.MINUTE, 30);
+//        bcal.add(java.util.Calendar.HOUR, 14);
+//        bcal.add(java.util.Calendar.MINUTE, 30);
         start = bcal.getTimeInMillis();
 
         bcal.add(java.util.Calendar.MINUTE, 60);
