@@ -17,6 +17,7 @@ public class CalendarView extends VerticalLayout implements View {
     @Autowired
     public CalendarView(MeetingDataProvider meetingDataProvider) {
         final EventCalendar calendar = new EventCalendar(meetingDataProvider);
+        setWidth(90, Unit.PERCENTAGE);
         calendar.setSizeFull();
         addComponent(calendar);
     }

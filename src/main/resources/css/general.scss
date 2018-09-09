@@ -2,9 +2,9 @@
 @mixin general {
 
   .icon_only_btn {
-    border: none;
-    background: none;
-    box-shadow: none;
+    border: none!important;
+    background: none!important;
+    box-shadow: none!important;
   }
 
 }

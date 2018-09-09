@@ -47,7 +47,7 @@ public class MainView extends UI {
         MenuBar menu = new MenuBar();
         menu.setWidth(100.0f, Unit.PERCENTAGE);
         menu.addItem("Kalender", navitageToView(CalendarView.VIEW_NAME));
-        menu.addItem("Adressen", navitageToView(Contacts.VIEW_NAME));
+        menu.addItem("Adressen", navitageToView(Students.VIEW_NAME));
         return menu;
     }
 
