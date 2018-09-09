@@ -97,7 +97,7 @@
                     <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
                     <draftCompile>false</draftCompile>
                     <compileReport>false</compileReport>
-                    <style>OBF</style>
+                    <styleName>OBF</styleName>
                     <strict>true</strict>
                 </configuration>
 

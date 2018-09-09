@@ -1,7 +1,9 @@
 package de.vilkas.scolee.view;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.VerticalLayout;
 import de.vilkas.scolee.module.calendar.EventCalendar;
 import de.vilkas.scolee.module.calendar.MeetingDataProvider;

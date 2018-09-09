@@ -4,7 +4,7 @@ import com.vaadin.data.Binder;
 import com.vaadin.ui.*;
 import org.vaadin.dialogs.ConfirmDialog;
 
-public class EventPopupWindow extends Window {
+public class EventEdit extends Window {
 
 
     private final MeetingDataProvider meetingDataProvider;
@@ -21,7 +21,7 @@ public class EventPopupWindow extends Window {
     private VerticalLayout mainLayout;
     private Button deleteBtn;
 
-    public EventPopupWindow(final MeetingDataProvider meetingDataProvider, final EventData eventData) {
+    public EventEdit(final MeetingDataProvider meetingDataProvider, final EventData eventData) {
         this.meetingDataProvider = meetingDataProvider;
         this.eventData = eventData;
         binder = new Binder<>();
@@ -42,7 +42,7 @@ public class EventPopupWindow extends Window {
         dates.setWidth(100, Unit.PERCENTAGE);
         name.setWidth(100, Unit.PERCENTAGE);
         details.setWidth(100, Unit.PERCENTAGE);
-        details.setHeight(100, Unit.PERCENTAGE);
+        details.setHeight(500, Unit.PIXELS);
     }
 
     private void initUI() {
